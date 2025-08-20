@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "acb53aa3-4fea-4661-ba23-d65ae33a8b62",
+		"name": "Account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29816808"
+	},
+	"item": [
+		{
+			"name": "Create Account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Savings\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/accounts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/accounts/search"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"sui\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/accounts/{id}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "{{baseUrl}}/api/accounts/{id}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/api/accounts/{id}"
+			},
+			"response": []
+		}
+	]
+}

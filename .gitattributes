@@ -1,0 +1,6 @@
+# Text
+*.json          text eol=lf
+
+# Git
+*.gitattributes text eol=lf
+*.gitignore     text eol=lf

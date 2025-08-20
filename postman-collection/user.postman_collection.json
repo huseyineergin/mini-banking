@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "2bbe9f27-d5df-4003-ae63-9309da690e48",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29816808"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/** \r",
+							" * @typedef {Object} AuthData\r",
+							" * @property {string} token\r",
+							"*/\r",
+							"\r",
+							"/** \r",
+							" * @typedef {Object} AuthResponse\r",
+							" * @property {boolean} success\r",
+							" * @property {string} message\r",
+							" * @property {number} status\r",
+							" * @property {AuthData} data\r",
+							"*/\r",
+							"\r",
+							"try {\r",
+							"    /** @type {AuthResponse} */\r",
+							"    const response = pm.response.json();\r",
+							"\r",
+							"    if (response && response.data && response.data.token) {\r",
+							"        pm.environment.set(\"token\", response.data.token);\r",
+							"        console.log(\"Token set.\");\r",
+							"    } else {\r",
+							"        console.warn(\"Token not found.\");\r",
+							"        pm.environment.unset(\"token\");\r",
+							"    }\r",
+							"} catch {\r",
+							"    console.error(\"Failed to parse response.\");\r",
+							"    pm.environment.unset(\"token\");\r",
+							"}\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jake.doe\",\r\n    \"password\": \"12345aA+\",\r\n    \"email\": \"jake.doe@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/users/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/** \r",
+							" * @typedef {Object} AuthData\r",
+							" * @property {string} token\r",
+							"*/\r",
+							"\r",
+							"/** \r",
+							" * @typedef {Object} AuthResponse\r",
+							" * @property {boolean} success\r",
+							" * @property {string} message\r",
+							" * @property {number} status\r",
+							" * @property {AuthData} data\r",
+							"*/\r",
+							"\r",
+							"try {\r",
+							"    /** @type {AuthResponse} */\r",
+							"    const response = pm.response.json();\r",
+							"\r",
+							"    if (response && response.data && response.data.token) {\r",
+							"        pm.environment.set(\"token\", response.data.token);\r",
+							"        console.log(\"Token set.\");\r",
+							"    } else {\r",
+							"        console.warn(\"Token not found.\");\r",
+							"        pm.environment.unset(\"token\");\r",
+							"    }\r",
+							"} catch {\r",
+							"    console.error(\"Failed to parse response.\");\r",
+							"    pm.environment.unset(\"token\");\r",
+							"}\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jake.doe\",\r\n    \"password\": \"12345aA+\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/users/login"
+			},
+			"response": []
+		}
+	]
+}
