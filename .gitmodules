@@ -1,3 +1,6 @@
 [submodule "mini-banking-server"]
 	path = mini-banking-server
 	url = git@github.com:huseyineergin/mini-banking-server.git
+[submodule "mini-banking-client"]
+	path = mini-banking-client
+	url = git@github.com:huseyineergin/mini-banking-client.git
