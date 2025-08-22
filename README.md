@@ -118,7 +118,7 @@ On startup, the application creates 2 users with 3 accounts each:
   - Password: 12345aA+
   - Email: `jane.doe@example.com`
 
-After startup, application can be accessed on `http://localhost:3000`.
+After startup, the application can be accessed at `http://localhost:3000`.
 
 ## API Endpoints
 
