@@ -118,6 +118,8 @@ On startup, the application creates 2 users with 3 accounts each:
   - Password: 12345aA+
   - Email: `jane.doe@example.com`
 
+After startup, application can be accessed on `http://localhost:3000`.
+
 ## API Endpoints
 
 The API endpoints are defined in the Postman collections and can also be explored on [Swagger UI](http://localhost:5000/swagger-ui/index.html).
