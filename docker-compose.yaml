@@ -1,0 +1,59 @@
+services:
+  next:
+    container_name: mini-banking-client
+    build:
+      context: ./mini-banking-client
+      dockerfile: Dockerfile
+    image: mini-banking-client
+    ports:
+      - "3000:3000"
+    environment:
+      - JWT_SECRET=Zh28h8kvun73MrRyY82fwR3FXMvBUTpd
+      - API_BASE_URL=http://java:5000
+    depends_on:
+      - java
+    networks:
+      - mini-banking-network
+
+  java:
+    container_name: mini-banking-server
+    build:
+      context: ./mini-banking-server
+      dockerfile: Dockerfile
+    image: mini-banking-server
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: mysql
+      DB_DRIVER: com.mysql.cj.jdbc.Driver
+      DB_USERNAME: mini-banking-user
+      DB_PASSWORD: P2LHrNj4RcNwqY
+      JWT_SECRET: Zh28h8kvun73MrRyY82fwR3FXMvBUTpd
+      JWT_EXPIRATION: 3600000
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - mini-banking-network
+
+  mysql:
+    image: mysql:8.4
+    container_name: mini-banking-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: mini-banking-user
+      MYSQL_PASSWORD: P2LHrNj4RcNwqY
+      MYSQL_DATABASE: mini-banking-db
+      MYSQL_ROOT_PASSWORD: D547ish6Kq74ft
+    networks:
+      - mini-banking-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+networks:
+  mini-banking-network:
+    name: mini-banking-network
