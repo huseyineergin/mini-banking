@@ -1,6 +1,6 @@
 # Mini Banking Application
 
-Description.
+Mini Banking application built with NextJS and Spring Boot.
 
 ## Table of Contents
 
@@ -37,6 +37,8 @@ The client and server applications are included as Git submodules:
 - React 19
 - NextJS 15
 - TypeScript
+- React Hook Form w/ Zod
+- ShadCN UI
 - Tailwind CSS
 
 ## Getting Started
@@ -148,4 +150,4 @@ Postman collections are provided to test the API endpoints. They can be found in
 
 - user.postman_collection.json
 - account.postman_collection.json
-- transfer.postman_collection.json
+- transaction.postman_collection.json
